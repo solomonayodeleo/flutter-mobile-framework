@@ -50,5 +50,8 @@ class AuthController extends Notifier<AuthState> {
       );
     }
   }
-}
 
+  void signOut() {
+    state = const AuthState();
+  }
+}

@@ -31,9 +31,22 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 16),
-            AppButton(
-              label: 'Back to auth',
-              onPressed: () => context.go('/auth'),
+            Row(
+              children: [
+                Expanded(
+                  child: AppButton(
+                    label: 'Open settings',
+                    onPressed: () => context.go('/settings'),
+                  ),
+                ),
+                const SizedBox(width: 12),
+                Expanded(
+                  child: AppButton(
+                    label: 'Back to auth',
+                    onPressed: () => context.go('/auth'),
+                  ),
+                ),
+              ],
             ),
           ],
         ),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_mobile_framework/src/features/auth/presentation/auth_screen.dart';
 import 'package:flutter_mobile_framework/src/features/home/presentation/home_screen.dart';
+import 'package:flutter_mobile_framework/src/features/settings/presentation/settings_screen.dart';
 
 GoRouter createRouter() {
   return GoRouter(
@@ -15,7 +16,10 @@ GoRouter createRouter() {
         path: '/home',
         builder: (context, state) => const HomeScreen(),
       ),
+      GoRoute(
+        path: '/settings',
+        builder: (context, state) => const SettingsScreen(),
+      ),
     ],
   );
 }
-

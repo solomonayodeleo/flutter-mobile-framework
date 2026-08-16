@@ -1,17 +1,18 @@
-g# flutter_mobile_ui_library_example
+# Flutter Mobile Framework Example
 
-A new Flutter project.
+This example app demonstrates the starter framework, Riverpod state, GoRouter navigation, GetIt dependency injection, and the shared UI widgets exported by the main package.
 
-## Getting Started
+## Run
 
-This project is a starting point for a Flutter application.
+```bash
+flutter pub get
+flutter run
+```
 
-A few resources to get you started if this is your first Flutter project:
+## What It Shows
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+- auth screen with a sample sign-in flow
+- home screen with navigation into settings
+- settings screen with logout
+- reusable app button, card, spacing, and theme tokens
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
