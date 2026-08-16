@@ -8,6 +8,7 @@ class AppTextField extends StatelessWidget {
     this.controller,
     this.onChanged,
     this.obscureText = false,
+    this.suffixIcon,
   });
 
   final String labelText;
@@ -15,6 +16,7 @@ class AppTextField extends StatelessWidget {
   final TextEditingController? controller;
   final ValueChanged<String>? onChanged;
   final bool obscureText;
+  final Widget? suffixIcon;
 
   @override
   Widget build(BuildContext context) {
@@ -26,6 +28,7 @@ class AppTextField extends StatelessWidget {
         labelText: labelText,
         hintText: hintText,
         border: const OutlineInputBorder(),
+        suffixIcon: suffixIcon,
       ),
     );
   }

@@ -9,7 +9,6 @@ import 'package:flutter_mobile_framework/src/widgets/app_error_state.dart';
 import 'package:flutter_mobile_framework/src/widgets/app_loading_button.dart';
 import 'package:flutter_mobile_framework/src/widgets/app_page_header.dart';
 import 'package:flutter_mobile_framework/src/widgets/app_text_field.dart';
-import 'package:flutter_mobile_framework/src/theme/app_text_styles.dart';
 
 class HomeScreen extends ConsumerWidget {
   const HomeScreen({super.key});
@@ -71,14 +70,21 @@ class HomeScreen extends ConsumerWidget {
               const SizedBox(width: 12),
               Expanded(
                 child: AppButton(
-                  label: 'Back to auth',
-                  onPressed: () {
-                    ref.read(authControllerProvider.notifier).signOut();
-                    context.go('/auth');
-                  },
+                  label: 'Show showcase',
+                  variant: AppButtonVariant.outlined,
+                  onPressed: () => context.go('/showcase'),
                 ),
               ),
             ],
+          ),
+          const SizedBox(height: 12),
+          AppButton(
+            label: 'Back to auth',
+            variant: AppButtonVariant.secondary,
+            onPressed: () {
+              ref.read(authControllerProvider.notifier).signOut();
+              context.go('/auth');
+            },
           ),
         ],
       ),

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:flutter_mobile_framework/src/app/theme_controller.dart';
 import 'package:flutter_mobile_framework/src/features/auth/presentation/auth_controller.dart';
 import 'package:flutter_mobile_framework/src/widgets/app_button.dart';
 import 'package:flutter_mobile_framework/src/widgets/app_card.dart';
 import 'package:flutter_mobile_framework/src/widgets/app_page_header.dart';
-import 'package:flutter_mobile_framework/src/theme/app_text_styles.dart';
 
 class SettingsScreen extends ConsumerWidget {
   const SettingsScreen({super.key});
@@ -23,10 +23,19 @@ class SettingsScreen extends ConsumerWidget {
             children: [
               const AppPageHeader(
                 title: 'App settings',
-                subtitle:
-                    'This is a starter placeholder for theme toggles, profile options, or build flags.',
+                subtitle: 'Manage app appearance and session actions.',
               ),
               const SizedBox(height: 8),
+              AppButton(
+                label: ref.watch(themeControllerProvider).valueOrNull ==
+                        ThemeMode.dark
+                    ? 'Switch to light theme'
+                    : 'Switch to dark theme',
+                variant: AppButtonVariant.outlined,
+                onPressed: () {
+                  ref.read(themeControllerProvider.notifier).toggleTheme();
+                },
+              ),
               const SizedBox(height: 16),
               AppButton(
                 label: 'Log out',
