@@ -4,7 +4,7 @@ class InMemoryAuthRepository implements AuthRepository {
   @override
   Future<String> signIn() async {
     await Future<void>.delayed(const Duration(milliseconds: 700));
-    return 'Solomon Ayodele';
+    return 'User';
   }
 }
 
