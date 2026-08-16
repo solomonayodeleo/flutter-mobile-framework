@@ -1,13 +1,17 @@
-# Flutter Mobile UI Library
+# Flutter Mobile Framework
 
-Reusable Flutter UI foundations for Fusion mobile projects.
+Reusable Flutter foundation for Fusion mobile projects, combining the starter framework and the shared UI library in one repo.
 
 ## What this repo is for
 
-This repository is intended to hold shared, reusable UI building blocks for Flutter apps, including:
+This repository holds both the application framework and the shared UI building blocks for Flutter apps, including:
 
+- app bootstrap and project scaffolding
+- clean architecture folder structure
+- MVVM and Riverpod setup
+- dependency injection wiring
+- routing and theme setup
 - design tokens
-- theme primitives
 - reusable widgets
 - input components
 - layout helpers
@@ -15,7 +19,7 @@ This repository is intended to hold shared, reusable UI building blocks for Flut
 
 ## Architecture
 
-This library follows a clean, feature-friendly structure so it can be reused across multiple apps without becoming a dumping ground.
+This repo follows a clean, feature-friendly structure so it can be reused across multiple apps without becoming a dumping ground.
 
 Recommended layers:
 
@@ -24,10 +28,12 @@ Recommended layers:
 - `src/layout` for spacing, responsive helpers, and wrappers
 - `src/extensions` for Flutter and Dart extensions
 - `src/tokens` for brand-driven constants
+- `src/bootstrap` for app startup and environment wiring
+- `src/features` for starter feature examples
 
 ## Usage
 
-Import the library from your Flutter app and build screens with the shared widgets and theme primitives.
+Use this repo as the starting point for new Flutter apps and as the source of shared widgets and theme primitives.
 
 ## Development
 
@@ -35,4 +41,3 @@ Import the library from your Flutter app and build screens with the shared widge
 flutter pub get
 flutter test
 ```
-

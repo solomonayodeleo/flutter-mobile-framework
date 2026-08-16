@@ -1,5 +1,5 @@
 name: flutter_mobile_ui_library_example
-description: Example app for the Flutter Mobile UI Library
+description: Example app for the Flutter Mobile Framework
 publish_to: none
 
 environment:
@@ -9,7 +9,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flutter_mobile_ui_library:
+  flutter_riverpod: ^3.1.0
+  flutter_mobile_framework:
     path: ..
 
 dev_dependencies:
@@ -19,4 +20,3 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
-

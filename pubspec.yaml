@@ -1,5 +1,5 @@
-name: flutter_mobile_ui_library
-description: Shared Flutter UI library for Fusion mobile applications
+name: flutter_mobile_framework
+description: Shared Flutter framework and UI library for Fusion mobile applications
 version: 0.1.0
 publish_to: none
 
@@ -12,6 +12,7 @@ dependencies:
     sdk: flutter
   flutter_riverpod: ^3.1.0
   get_it: ^9.2.0
+  go_router: ^17.1.0
 
 dev_dependencies:
   flutter_test:
@@ -20,4 +21,3 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
-
