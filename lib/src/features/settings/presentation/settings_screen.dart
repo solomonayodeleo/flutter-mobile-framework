@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:flutter_mobile_framework/src/features/auth/presentation/auth_controller.dart';
 import 'package:flutter_mobile_framework/src/widgets/app_button.dart';
 import 'package:flutter_mobile_framework/src/widgets/app_card.dart';
+import 'package:flutter_mobile_framework/src/widgets/app_page_header.dart';
 import 'package:flutter_mobile_framework/src/theme/app_text_styles.dart';
 
 class SettingsScreen extends ConsumerWidget {
@@ -20,11 +21,12 @@ class SettingsScreen extends ConsumerWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.min,
             children: [
-              Text('App settings', style: AppTextStyles.headline),
-              const SizedBox(height: 8),
-              const Text(
-                'This is a starter placeholder for theme toggles, profile options, or build flags.',
+              const AppPageHeader(
+                title: 'App settings',
+                subtitle:
+                    'This is a starter placeholder for theme toggles, profile options, or build flags.',
               ),
+              const SizedBox(height: 8),
               const SizedBox(height: 16),
               AppButton(
                 label: 'Log out',

@@ -14,7 +14,8 @@ class AuthScreen extends ConsumerWidget {
     final state = ref.watch(authControllerProvider);
 
     ref.listen(authControllerProvider, (previous, next) {
-      if (next.userName != null && previous?.userName != next.userName) {
+      if (next.isAuthenticated &&
+          previous?.status != AuthStatus.signedIn) {
         context.go('/home');
       }
     });
@@ -36,7 +37,8 @@ class AuthScreen extends ConsumerWidget {
                 ),
                 const SizedBox(height: 24),
                 AppButton(
-                  label: state.isLoading ? 'Signing in...' : 'Sign in sample user',
+                  label:
+                      state.isLoading ? 'Signing in...' : 'Sign in sample user',
                   onPressed: state.isLoading
                       ? () {}
                       : () => ref.read(authControllerProvider.notifier).signIn(),
@@ -56,4 +58,3 @@ class AuthScreen extends ConsumerWidget {
     );
   }
 }
-

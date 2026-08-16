@@ -16,4 +16,3 @@ class FlutterMobileFrameworkApp extends StatelessWidget {
     );
   }
 }
-

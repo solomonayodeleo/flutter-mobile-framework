@@ -5,26 +5,36 @@ import 'package:flutter_mobile_framework/src/features/auth/data/auth_repository.
 final authControllerProvider =
     NotifierProvider<AuthController, AuthState>(AuthController.new);
 
+enum AuthStatus {
+  signedOut,
+  signingIn,
+  signedIn,
+}
+
 class AuthState {
   const AuthState({
-    this.isLoading = false,
+    this.status = AuthStatus.signedOut,
     this.userName,
     this.errorMessage,
   });
 
-  final bool isLoading;
+  final AuthStatus status;
   final String? userName;
   final String? errorMessage;
 
+  bool get isLoading => status == AuthStatus.signingIn;
+  bool get isAuthenticated => status == AuthStatus.signedIn;
+
   AuthState copyWith({
-    bool? isLoading,
+    AuthStatus? status,
     String? userName,
     String? errorMessage,
+    bool clearError = false,
   }) {
     return AuthState(
-      isLoading: isLoading ?? this.isLoading,
+      status: status ?? this.status,
       userName: userName ?? this.userName,
-      errorMessage: errorMessage,
+      errorMessage: clearError ? null : errorMessage ?? this.errorMessage,
     );
   }
 }
@@ -39,13 +49,20 @@ class AuthController extends Notifier<AuthState> {
   }
 
   Future<void> signIn() async {
-    state = state.copyWith(isLoading: true, errorMessage: null);
+    state = state.copyWith(
+      status: AuthStatus.signingIn,
+      clearError: true,
+    );
     try {
       final userName = await _repository.signIn();
-      state = state.copyWith(isLoading: false, userName: userName);
+      state = state.copyWith(
+        status: AuthStatus.signedIn,
+        userName: userName,
+        clearError: true,
+      );
     } catch (error) {
       state = state.copyWith(
-        isLoading: false,
+        status: AuthStatus.signedOut,
         errorMessage: 'Sign in failed. Please try again.',
       );
     }
